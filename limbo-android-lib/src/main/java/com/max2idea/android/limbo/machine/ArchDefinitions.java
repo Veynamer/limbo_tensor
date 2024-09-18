@@ -91,7 +91,11 @@ public class ArchDefinitions {
 
         if (LimboApplication.arch == Config.Arch.arm || LimboApplication.arch == Config.Arch.arm64) {
             vgaValues.add("virtio-ramfb");
+            vgaValues.add("vhost-user-gpu");
+            vgaValues.add("vhost-user-pci");
             vgaValues.add("virtio-gpu-pci");
+            vgaValues.add("virtio-gpu-gl");
+            vgaValues.add("qxl");
         }
 
         //XXX: some archs don't support vga on QEMU like SPARC64
@@ -120,8 +124,8 @@ public class ArchDefinitions {
     public static ArrayList<String> getUIValues() {
         ArrayList<String> arrList = new ArrayList<>();
         arrList.add("VNC");
-//        if (Config.enable_SDL)
-//            arrList.add("SDL");
+        if (Config.enable_SDL)
+            arrList.add("SDL");
         return arrList;
     }
 
